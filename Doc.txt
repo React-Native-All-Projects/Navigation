@@ -22,6 +22,6 @@ react-native-gesture-handler react-native-reanimated
 react-native-vector-icons
 
 Link Doc : 
-https://reactnavigation.org/docs/navigating
+https://reactnavigation.org/docs/drawer-navigator/#installation
 Link Video :
-https://www.youtube.com/watch?v=a9jSyZXYGn8&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=2
+https://www.youtube.com/watch?v=2Tj9y8lfiyo&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=3
