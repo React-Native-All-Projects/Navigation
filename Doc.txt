@@ -25,3 +25,15 @@ Link Doc :
 https://reactnavigation.org/docs/drawer-navigator/#installation
 Link Video :
 https://www.youtube.com/watch?v=2Tj9y8lfiyo&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=3
+
+********************************************************************Bottom Tabs Navigator
+Video 2 :
+
+packages :
+@react-navigation/bottom-tabs
+
+Link Doc : 
+https://reactnavigation.org/docs/bottom-tab-navigator
+Link Video :
+https://www.youtube.com/watch?v=RSzITFbOtpQ&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=4
+
