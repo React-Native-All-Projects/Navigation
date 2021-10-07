@@ -8,6 +8,9 @@ import {
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import icons from 'react-native-vector-icons/Ionicons';
 
 const Home = ({navigation}) => {
   return (
@@ -48,11 +51,64 @@ const Details = ({navigation}) => {
   );
 };
 
+const HomeStock = new createNativeStackNavigator();
+const DetailsStock = new createNativeStackNavigator();
+
 const Stack = new createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+
+const HomeStockScreen = ({navigation}) => (
+     <HomeStock.Navigator
+          screenOptions ={{
+                headerStyle :{
+            backgroundColor : '#009387'
+          },
+          headerTintColor:'#fff',
+          headerTitleStyle :{
+            fontWeight :'bold'
+          },
+          //Error
+          // headerLeft:()=>(
+          //   // <Icon.Button name='ios-menu' size={25}></Icon.Button>
+          //   // <Icon.Button name='ios-menu' size={25} backgroundColor='red' onPress={()=>navigation.openDrawer()}></Icon.Button>
+          // )
+    }}
+      >
+        <Stack.Screen name="Home" component={Home} 
+        />
+      </HomeStock.Navigator>
+)
+
+const DetailsStockScreen = ({navigation}) => (
+     <DetailsStock.Navigator
+          screenOptions ={{
+                headerStyle :{
+            backgroundColor : '#009387'
+          },
+          headerTintColor:'#fff',
+          headerTitleStyle :{
+            fontWeight :'bold'
+          }
+    }}
+      >
+        <Stack.Screen name="Details" component={Details} 
+        />
+      </DetailsStock.Navigator>
+)
+
 const App = () =>{
   return (
     <NavigationContainer>
-      <Stack.Navigator
+
+    {/*---------------------------------------------------------------------------- Lazy Loading */}
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeStockScreen} />
+        <Drawer.Screen name="Details" component={DetailsStockScreen} />
+      </Drawer.Navigator>
+
+    {/*---------------------------------------------------------------------------- Normal Loading */}
+      {/* <Stack.Navigator
 
       //Change All Style Page In That Stack
           screenOptions ={{
@@ -82,7 +138,10 @@ const App = () =>{
         options ={{title:'Main Page'}}
         />
         <Stack.Screen name="Details" component={Details} />
-      </Stack.Navigator>
+      </Stack.Navigator> */}
+   
+
+
     </NavigationContainer>
   );
 }

@@ -1,0 +1,14 @@
+
+********************************************************************navigation
+Video 1 :
+@react-navigation/native-stack
+
+********************************************************************Lazy Loding & Normal Loading
+Video 2 :
+//Error In Icon
+packages :
+
+@react-navigation/drawer
+react-native-gesture-handler react-native-reanimated
+react-native-gesture-handler react-native-reanimated
+react-native-vector-icons
