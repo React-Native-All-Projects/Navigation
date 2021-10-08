@@ -60,5 +60,17 @@ react-native-linear-gradient
 Link Doc : 
 No Doc
 Link Video :
-https://www.youtube.com/watch?v=ayxRtBHw754&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=5
+https://www.youtube.com/watch?v=Rs72pRwXIzA&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=6
+
+********************************************************************Authentication
+Video 6 :
+
+packages :
+
+@react-native-community/async-storage
+
+Link Doc : 
+No Doc
+Link Video :
+https://www.youtube.com/watch?v=gvF6sFIPfsQ&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=6
 

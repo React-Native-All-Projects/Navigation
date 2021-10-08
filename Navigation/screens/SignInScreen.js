@@ -13,7 +13,7 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-
+import {AuthContext} from '../Components/Context'
 
 const SignInScreen = ({navigation}) =>{
 
@@ -25,6 +25,8 @@ const SignInScreen = ({navigation}) =>{
         isValidUser: true,
         isValidPassword: true,
     });
+
+    const { signIn } = React.useContext(AuthContext);
 
     const ChangeUserName = (UserName) => {
         if(UserName.length != 0){
@@ -50,7 +52,6 @@ const SignInScreen = ({navigation}) =>{
     }
 
         const ChangePasswordTextStatus = () =>{
-            console.log(data.secureTextEntry);
         setData({
             ... data,
             secureTextEntry : !data.secureTextEntry
@@ -142,7 +143,7 @@ const SignInScreen = ({navigation}) =>{
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {}}
+                    onPress={() => {signIn(data.username,data.password)}}
                 >
                 <LinearGradient
                     colors={['#08d4c4', '#01ab9d']}
