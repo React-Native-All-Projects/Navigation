@@ -10,7 +10,7 @@ https://reactnavigation.org/docs/navigating
 Link Video :
 https://www.youtube.com/watch?v=a9jSyZXYGn8&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=2
 
-********************************************************************Lazy Loding & Normal Loading
+********************************************************************Lazy Loding & Normal Loading & Navigation Drawer
 Video 2 :
 //Error In Icon
 
@@ -38,7 +38,19 @@ Link Video :
 https://www.youtube.com/watch?v=RSzITFbOtpQ&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=4
 
 
+********************************************************************Custom Drawer Navigator
 Video 4 :
+
+packages :
+No Packages 
+
+Link Doc : 
+No Doc
+Link Video :
+https://www.youtube.com/watch?v=ayxRtBHw754&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=5
+
+********************************************************************Log In & Sigup UI
+Video 5 :
 
 packages :
 No Packages 
