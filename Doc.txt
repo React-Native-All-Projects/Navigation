@@ -53,7 +53,9 @@ https://www.youtube.com/watch?v=ayxRtBHw754&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfI
 Video 5 :
 
 packages :
-No Packages 
+
+react-native-animatable
+react-native-linear-gradient
 
 Link Doc : 
 No Doc
