@@ -27,7 +27,7 @@ Link Video :
 https://www.youtube.com/watch?v=2Tj9y8lfiyo&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=3
 
 ********************************************************************Bottom Tabs Navigator
-Video 2 :
+Video 3 :
 
 packages :
 @react-navigation/bottom-tabs
@@ -36,4 +36,15 @@ Link Doc :
 https://reactnavigation.org/docs/bottom-tab-navigator
 Link Video :
 https://www.youtube.com/watch?v=RSzITFbOtpQ&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=4
+
+
+Video 4 :
+
+packages :
+No Packages 
+
+Link Doc : 
+No Doc
+Link Video :
+https://www.youtube.com/watch?v=ayxRtBHw754&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=5
 

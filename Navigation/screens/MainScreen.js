@@ -7,6 +7,8 @@ import Details from './Details';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ExploreScreen from './ExploreScreen';
+import SupportScreen from './SupportScreen';
+import ProfileScreen from './ProfileScreen';
 
 const HomeStock = new createNativeStackNavigator();
 const DetailsStock = new createNativeStackNavigator();
@@ -45,8 +47,8 @@ const MainScreen = () =>{
         }}
       />
       <Tab.Screen
-        name="ExploreScreen"
-        component={ExploreScreen}
+        name="Profile"
+        component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
                     tabBarColor:'#009387',
@@ -56,6 +58,8 @@ const MainScreen = () =>{
         }}
       />
     </Tab.Navigator>
+
+    
   
   )}
 
@@ -72,8 +76,7 @@ const HomeStockScreen = ({navigation}) => (
           },
     }}
       >
-        <Stack.Screen name="Home" component={Home} 
-        />
+        <Stack.Screen name="Home" component={Home} />
       </HomeStock.Navigator>
 )
 
