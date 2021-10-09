@@ -13,9 +13,16 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import {AuthContext} from '../Components/Context'
+
+
+import {AuthContext} from '../Components/Context';
+import Users from '../model/users';
+
+import { useTheme } from '@react-navigation/native';
 
 const SignInScreen = ({navigation}) =>{
+
+        const { colors } = useTheme();
 
         const [data, setData] = React.useState({
         username: '',
@@ -29,26 +36,37 @@ const SignInScreen = ({navigation}) =>{
     const { signIn } = React.useContext(AuthContext);
 
     const ChangeUserName = (UserName) => {
-        if(UserName.length != 0){
+        if(UserName.length >= 4){
             setData({
                 ... data,
                 username : UserName,
-                check_textInputChange : true
+                check_textInputChange : true,
+                isValidUser : true,
             })
         }else{
             setData({
                 ... data,
                 username : UserName,
-                check_textInputChange : false
+                check_textInputChange : false,
+                isValidUser : false,
             })
         }
     }
 
     const ChangePassword = (Password) =>{
+        if(Password >= 8){
         setData({
             ... data,
-            password : Password
+            password : Password,
+            isValidPassword : true
         })
+        }else{
+                    setData({
+            ... data,
+            password : Password,
+            isValidPassword : false
+        })
+        }
     }
 
         const ChangePasswordTextStatus = () =>{
@@ -56,6 +74,58 @@ const SignInScreen = ({navigation}) =>{
             ... data,
             secureTextEntry : !data.secureTextEntry
         })
+    }
+
+        const handleValidUser = (val) => {
+        if( val.trim().length >= 4 ) {
+            setData({
+                ...data,
+                isValidUser: true
+            });
+        } else {
+            setData({
+                ...data,
+                isValidUser: false
+            });
+        }
+    }
+
+        const handlePasswordChange = (val) => {
+        if( val.trim().length >= 8 ) {
+            setData({
+                ...data,
+                password: val,
+                isValidPassword: true
+            });
+        } else {
+            setData({
+                ...data,
+                password: val,
+                isValidPassword: false
+            });
+        }
+    }
+
+        const loginHandle = (userName, password) => {
+
+        const foundUser = Users.filter( item => {
+            return userName == item.username && password == item.password;
+        } );
+
+        if ( data.username.length == 0 || data.password.length == 0 ) {
+            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
+                {text: 'Okay'}
+            ]);
+            return;
+        }
+
+        if ( foundUser.length == 0 ) {
+            Alert.alert('Invalid User!', 'Username or password is incorrect.', [
+                {text: 'Okay'}
+            ]);
+            return;
+        }
+        signIn(foundUser);
     }
 
     return (
@@ -70,21 +140,22 @@ const SignInScreen = ({navigation}) =>{
         
         <Animatable.View 
             animation="fadeInUpBig"
-            style={[styles.footer]}
+            style={[styles.footer,{backgroundColor: colors.background}]}
         >
-            <Text style={[styles.text_footer]}>Username</Text>
+            <Text style={[styles.text_footer,{ color: colors.text}]}>Username</Text>
             <View style={styles.action}>
                 <FontAwesome 
                     name="user-o"
-                    // color={colors.text}
+                    color={colors.text}
                     size={20}
                 />
                 <TextInput 
                     placeholder="Your Username"
-                    placeholderTextColor="#666666"
-                    style={[styles.textInput]}
+                    placeholderTextColor='#666666'
+                    style={[styles.textInput,{ color: colors.text}]}
                     autoCapitalize="none"
                     onChangeText= {(UserName) => ChangeUserName(UserName)}
+                    // onEndEditing={(e)=>handleValidUser(e.nativeEvent.text)}
                 />
                             {data.check_textInputChange ? 
                             <Animatable.View
@@ -98,24 +169,29 @@ const SignInScreen = ({navigation}) =>{
                 </Animatable.View>
              : null}
             </View>
+            { data.isValidUser ? null : 
+            <Animatable.View animation="fadeInLeft" duration={500}>
+            <Text style={styles.errorMsg}>Username must be 4 characters long.</Text>
+            </Animatable.View>
+            }
 
             <Text style={[styles.text_footer, {
-                // color: colors.text,
+                color: colors.text,
                 marginTop: 35
             }]}>Password</Text>
             <View style={styles.action}>
                 <Feather 
                     name="lock"
-                    // color={colors.text}
+                    color={colors.text}
                     size={20}
                 />
                 <TextInput 
                     placeholder="Your Password"
                     placeholderTextColor="#666666"
-                    style={[styles.textInput]}
+                    style={[styles.textInput,{ color: colors.text}]}
                     autoCapitalize="none"
                     secureTextEntry = {data.secureTextEntry}
-                    onChangeText = {(Password)=>{ChangePassword(Password)}}
+                    onChangeText = {(Password)=>{handlePasswordChange(Password)}}
                 />
                 <TouchableOpacity
                    onPress={ ChangePasswordTextStatus}
@@ -135,6 +211,11 @@ const SignInScreen = ({navigation}) =>{
                     }
                 </TouchableOpacity>
             </View>
+                        { data.isValidPassword ? null : 
+            <Animatable.View animation="fadeInLeft" duration={500}>
+            <Text style={styles.errorMsg}>Password must be 8 characters long.</Text>
+            </Animatable.View>
+            }
             
 
             <TouchableOpacity>
@@ -143,7 +224,7 @@ const SignInScreen = ({navigation}) =>{
             <View style={styles.button}>
                 <TouchableOpacity
                     style={styles.signIn}
-                    onPress={() => {signIn(data.username,data.password)}}
+                    onPress={() => {loginHandle(data.username,data.password)}}
                 >
                 <LinearGradient
                     colors={['#08d4c4', '#01ab9d']}

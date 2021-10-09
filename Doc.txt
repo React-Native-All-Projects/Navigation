@@ -74,3 +74,22 @@ No Doc
 Link Video :
 https://www.youtube.com/watch?v=gvF6sFIPfsQ&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=6
 
+********************************************************************Validation
+Video 7 :
+
+packages :
+
+Link Doc : 
+No Doc
+Link Video :
+https://www.youtube.com/watch?v=km1qm1Zz2lY&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=8
+
+********************************************************************Themes(DefaultTheme & DarkTheme)
+Video 8 :
+
+packages :
+
+Link Doc : 
+https://reactnavigation.org/docs/themes/
+Link Video :
+https://www.youtube.com/watch?v=km1qm1Zz2lY&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=8

@@ -5,7 +5,12 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+import { useTheme } from '@react-navigation/native';
+
 const SplashScreen = ({navigation}) =>{
+
+    const { colors } = useTheme();
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -16,12 +21,14 @@ const SplashScreen = ({navigation}) =>{
                  />
             </View>
         <Animatable.View 
-            style={[styles.footer]}
+            style={[styles.footer,{
+                backgroundColor: colors.background
+            }]}
             animation="fadeInUpBig"
         >
-            <Text style={[styles.title]}>Stay connected with everyone!</Text>
+            <Text style={[styles.title,{color:colors.text}]}>Stay connected with everyone!</Text>
             <Text style={styles.text}>Sign in with account</Text>
-            <View style={styles.button}>
+            <View style={[styles.button]}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                 <LinearGradient
                     colors={['#08d4c4', '#01ab9d']}

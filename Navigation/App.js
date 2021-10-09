@@ -1,7 +1,18 @@
 import React, { Profiler, useEffect } from 'react';
 import {Button,StyleSheet,Text,View,ActivityIndicator} from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { 
+  NavigationContainer, 
+  DefaultTheme as NavigationDefaultTheme,
+  DarkTheme as NavigationDarkTheme
+} from '@react-navigation/native';
+
+import { 
+  Provider as PaperProvider, 
+  DefaultTheme as PaperDefaultTheme,
+  DarkTheme as PaperDarkTheme 
+} from 'react-native-paper';
+
 import Home from './screens/Home';
 import Details from './screens/Details';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -21,8 +32,31 @@ const Drawer = createDrawerNavigator();
 
 const App = () =>{
 
-  // const [isLoading , setIsLoading] = React.useState(true);
-  // const [userToken , setUserToken] = React.useState(true);
+    const [IsDarkTheme,setDarkTheme] = React.useState(false);
+
+    const CustomDefaultTheme = {
+      ...NavigationDefaultTheme,
+      ...PaperDefaultTheme,
+      colors:{
+        ...NavigationDefaultTheme.colors,
+        ...PaperDefaultTheme.colors,
+        background: '#ffffff',
+        text: '#333333'
+      }
+    }
+
+    const CustomDarkTheme = {
+      ...NavigationDarkTheme,
+      ...PaperDarkTheme,
+      colors:{
+        ...NavigationDarkTheme.colors,
+        ...PaperDarkTheme.colors,
+        background: '#333333',
+        text: '#ffffff'
+      }
+    }
+
+    const Theme = IsDarkTheme ? CustomDarkTheme : CustomDefaultTheme
 
   const InitialLoginStatus = {
     isLoading : false,
@@ -70,19 +104,16 @@ const [loginState,dispatch] = React.useReducer(loginReduce,InitialLoginStatus);
   
 
   const authContext = React.useMemo(()=>({
-    signIn:(userName,password)=>{
-      console.log( userName + '   ' + password);
-      let userToken = null;
-      userToken = null;
-      if(userName = 'user' && password == 'pass'){
-        try{
-        userToken = 'Token';
-        AsyncStorage.setItem('userToken',userToken);
-        }catch (e){
-          console.log(e);
-        }
+    signIn: async(foundUser) => {
+      const userToken = String(foundUser[0].userToken);
+      const userName = foundUser[0].username;
+      
+      try {
+        await AsyncStorage.setItem('userToken', userToken);
+      } catch(e) {
+        console.log(e);
       }
-      dispatch({type : 'LOGIN',id : userName,token: userToken});
+      dispatch({ type: 'LOGIN', id: userName, token: userToken });
     },
     signOut: async()=>{
             try{
@@ -96,6 +127,9 @@ const [loginState,dispatch] = React.useReducer(loginReduce,InitialLoginStatus);
     signUp:()=>{
       // setUserToken('Token')
       // setIsLoading(false)
+    },
+        ChangeTheme: () => {
+      setDarkTheme( isDarkTheme => !isDarkTheme );
     }
   }))
 
@@ -124,8 +158,9 @@ const [loginState,dispatch] = React.useReducer(loginReduce,InitialLoginStatus);
   return (
 
 
+    <PaperProvider theme={Theme}>
         <AuthContext.Provider value={authContext}>
-    <NavigationContainer >
+    <NavigationContainer theme={Theme} >
       { loginState.userToken != null ? (
         <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
           <Drawer.Screen name="SupportScreen" component={SupportScreen} />
@@ -140,6 +175,7 @@ const [loginState,dispatch] = React.useReducer(loginReduce,InitialLoginStatus);
     }
     </NavigationContainer>
     </AuthContext.Provider>
+    </PaperProvider>
 
     // <AuthContext.Provider value={authContext}>
     // <NavigationContainer>

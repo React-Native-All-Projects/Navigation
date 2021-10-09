@@ -7,14 +7,15 @@ import {Avatar,Title,Caption,Paragraph,Drawer,Text,TouchableRipple,Switch} from 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {AuthContext} from '../Components/Context'
+import { useTheme } from '@react-navigation/native';
 
 const DrawerContent= (props) => {
 
-    const [IsDarkTheme,setDarkTheme] = React.useState(false);
+    const PaperTheme = useTheme();
 
-    const {signOut} = React.useContext(AuthContext);
+    const {signOut,ChangeTheme} = React.useContext(AuthContext);
     const toggletheme = () =>{
-        setDarkTheme(!IsDarkTheme);
+        ChangeTheme();
     }
 
 
@@ -110,7 +111,7 @@ const DrawerContent= (props) => {
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
                                 <View pointerEvents="none">
-                                <Switch value={IsDarkTheme}/>
+                                <Switch value={PaperTheme.dark}/>
                                 </View>
                             </View>
                         </TouchableRipple>
