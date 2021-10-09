@@ -10,7 +10,7 @@ https://reactnavigation.org/docs/navigating
 Link Video :
 https://www.youtube.com/watch?v=a9jSyZXYGn8&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=2
 
-********************************************************************Lazy Loding & Normal Loading & Navigation Drawer
+********************************************************************Lazy Loding & Normal Loading & Drawer Navigation
 Video 2 :
 //Error In Icon
 
@@ -93,3 +93,31 @@ Link Doc :
 https://reactnavigation.org/docs/themes/
 Link Video :
 https://www.youtube.com/watch?v=km1qm1Zz2lY&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=8
+
+
+
+
+C:\Users\User\Documents\Github\React-Native\Navigation\Navigation\node_modules\react-native-vector-icons\Fonts
+
+
+
+
+
+
+
+
+
+********************************************************************Enable Icons
+Video 8 :
+
+packages :
+npm i react-native-vector-icons
+Link Doc : 
+https://www.npmjs.com/package/react-native-vector-icons
+Link Video :
+https://www.youtube.com/watch?v=a9jSyZXYGn8&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfIJY2&index=1
+
+
+
+
+C:\Users\User\Documents\Github\React-Native\Navigation\Navigation\node_modules\react-native-vector-icons\Fonts
