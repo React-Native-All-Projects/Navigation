@@ -3,7 +3,8 @@
 Video 1 :
 
 packages :
-@react-navigation/native-stack
+npm install @react-navigation/native
+npm install @react-navigation/native-stack
 
 Link Doc : 
 https://reactnavigation.org/docs/navigating
@@ -12,7 +13,6 @@ https://www.youtube.com/watch?v=a9jSyZXYGn8&list=PLQWFhX-gwJbmmqcP-9zMXBaxQbGKfI
 
 ********************************************************************Lazy Loding & Normal Loading & Drawer Navigation
 Video 2 :
-//Error In Icon
 
 packages :
 
@@ -54,7 +54,7 @@ Video 5 :
 
 packages :
 
-react-native-animatable
+react-native-animatable  (Link : https://www.npmjs.com/package/react-native-animatable)
 react-native-linear-gradient
 
 Link Doc : 
